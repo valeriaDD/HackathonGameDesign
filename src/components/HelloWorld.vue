@@ -1,12 +1,3 @@
-<script setup>
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
-})
-</script>
-
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
@@ -17,6 +8,19 @@ defineProps({
     </h3>
   </div>
 </template>
+<script>
+import {defineComponent} from "vue";
+
+export default defineComponent({
+  computed: {
+    msg() {
+      return this.$store.getters['test/getToken'];
+    }
+  },
+})
+
+</script>
+
 
 <style scoped>
 h1 {
